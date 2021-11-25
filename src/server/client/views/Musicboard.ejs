@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+	<head>
+		<%- include('./partials/Head.ejs', { botName: botName, pageTitle: pageTitle, logged: logged }) %>
+	</head>
+	<body class="w-screen h-screen">
+		<div class="flex flex-col h-full">
+			<div class="flex h-full">
+				<div class="bg-gray-900 w-52 shadow-xl p-4">
+					<div class="items-center flex flex-col">
+						<div class="w-16 h-16 rounded-full bg-gray-700 overflow-hidden">
+							<img
+								class="w-full h-full"
+								src="<%= guild.iconURL({ dynamic: true, size: 2048, format: 'png' }) %>"
+								alt=" "
+							>
+						</div>
+						<h1 class="text-indigo-100 text-xl p-2">Musicboard</h1>
+					</div>
+					<div class="items-center flex flex-col mt-4">
+						<button
+							class="bg-transparent px-4 py-2 rounded-xl
+							w-full text-left flex
+							text-indigo-100
+							hover:bg-purple-500
+							focus:bg-purple-500"
+						>
+							<i class="material-icons-outlined mr-1">home</i> Inicio
+						</button>
+						<button
+							class="bg-transparent px-4 py-2 rounded-xl
+							w-full text-left flex
+							text-indigo-100
+							hover:bg-purple-500
+							focus:bg-purple-500"
+						>
+							<i class="material-icons mr-1">search</i> Procurar
+						</button>
+						<button
+							class="bg-transparent px-4 py-2 rounded-xl
+							w-full text-left flex
+							text-indigo-100
+							hover:bg-purple-500
+							focus:bg-purple-500"
+						>
+							<i class="material-icons mr-1">arrow_back</i> Voltar
+						</button>
+					</div>
+				</div>
+				<div class="bg-gray-800 grid grid-rows-2 h-full w-full overflow-y-scroll p-4">
+					<div class="w-full h-full">
+						<h1 class="text-indigo-100 ml-2">Sugestões da Semana</h1>
+						<div class="grid grid-cols-4 w-full h-full">
+							<div class="flex flex-col m-2 bg-gray-900 max-h-52 shadow rounded cursor-pointer">
+								<div class="w-full h-full bg-gray-700">
+								</div>
+								<div class="p-2 mt-auto">
+									<h1 class="text-indigo-100">
+										Music Name
+									</h1>
+									<p class="text-gray-500">
+										Music Description
+									</p>
+								</div>
+							</div>
+							<div class="flex flex-col m-2 bg-gray-900 max-h-52 shadow rounded cursor-pointer">
+								<div class="w-full h-full bg-gray-700">
+								</div>
+								<div class="p-2 mt-auto">
+									<h1 class="text-indigo-100">
+										Music Name
+									</h1>
+									<p class="text-gray-500">
+										Music Description
+									</p>
+								</div>
+							</div>
+							<div class="flex flex-col m-2 bg-gray-900 max-h-52 shadow rounded cursor-pointer">
+								<div class="w-full h-full bg-gray-700">
+								</div>
+								<div class="p-2 mt-auto">
+									<h1 class="text-indigo-100">
+										Music Name
+									</h1>
+									<p class="text-gray-500">
+										Music Description
+									</p>
+								</div>
+							</div>
+							<div class="flex flex-col m-2 bg-gray-900 max-h-52 shadow rounded cursor-pointer">
+								<div class="w-full h-full bg-gray-700">
+								</div>
+								<div class="p-2 mt-auto">
+									<h1 class="text-indigo-100">
+										Music Name
+									</h1>
+									<p class="text-gray-500">
+										Music Description
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<div class="w-full h-full mt-2">
+						<h1 class="text-indigo-100 ml-2">Fila Atual</h1>
+						<div class="flex flex-col w-full h-full">
+							<div class="h-16 w-full flex border-b border-gray-100 p-4 items-center">
+								<div class="w-full text-left">
+									<h1 class="text-gray-300">TITULO</h1>
+								</div>
+								<div class="flex content-between">
+									<div class="text-center w-32">
+										<h1 class="text-gray-300">ARTISTA</h1>
+									</div>
+									<div class="text-center w-32">
+										<h1 class="text-gray-300">ALBUM</h1>
+									</div>
+									<div class="text-center w-32">
+										<h1 class="text-gray-300">DURAÇÃO</h1>
+									</div>
+								</div>
+							</div>
+							<div class="flex flex-col bg-gray-900 rounded" id="queue">
+								<% queue?.songs?.forEach(song => { %>
+									<div class="flex w-full h-full mt-2 cursor-pointer">
+										<div class="ml-2 flex w-full items-center">
+											<div class="w-16 h-16 bg-gray-700 rounded overflow-hidden">
+												<img
+													class="w-full h-full object-cover object-center"
+													src="<%= song?.thumbnail ?? '' %>"
+													alt=" "
+												>
+											</div>
+											<h1 class="text-indigo-100 ml-2"><%= song?.name ?? 'Song Name' %></h1>
+										</div>
+										<div class="p-4 flex justify-between">
+											<div class="w-32">
+												<h1 class="text-indigo-100 text-center"><%= song?.uploader?.name ?? 'Author' %></h1>
+											</div>
+											<div class="w-32">
+												<h1 class="text-indigo-100 text-center">None</h1>
+											</div>
+											<div class="w-32">
+												<h1 class="text-gray-400 text-center"><%= song.formattedDuration ?? '00:00' %></h1>
+											</div>
+										</div>
+									</div>
+								<% }) %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="player bg-gray-800 w-full h-24 flex p-2">
+				<div class="flex" id="player">
+					<div class="w-16 h-16 bg-gray-700 rounded overflow-hidden">
+						<img
+							class="w-full h-full object-cover object-center"
+							src="<%= queue?.songs[0]?.thumbnail ?? '' %>"
+							alt=" "
+						>
+					</div>
+					<div class="ml-2 flex flex-col self-center">
+						<h1 class="text-indigo-100"><%= (queue?.songs[0]?.name?.length + 16) ? `${queue?.songs[0]?.name?.slice(0, 16)}...` : queue?.songs[0]?.name ?? 'Song Name' %></h1>
+						<p class="text-gray-500"><%= queue?.songs[0]?.uploader?.name ?? 'Author' %></p>
+					</div>
+				</div>
+				<div class="flex flex-col ml-auto mr-auto">
+					<div class="flex">
+						<button class="bg-transparent">
+							<i class="material-icons-outlined text-indigo-100 ml-2 mr-2">shuffle</i>
+						</button>
+						<button class="bg-transparent">
+							<i class="material-icons-outlined text-indigo-100 ml-2 mr-2">skip_next</i>
+						</button>
+						<button class="bg-transparent">
+							<i class="material-icons-outlined text-indigo-100 ml-2 mr-2 text-6xl">play_circle_filled</i>
+						</button>
+						<button class="bg-transparent">
+							<i class="material-icons-outlined text-indigo-100 ml-2 mr-2">skip_previous</i>
+						</button>
+						<button class="bg-transparent">
+							<i class="material-icons-outlined text-indigo-100 ml-2 mr-2">loop</i>
+						</button>
+					</div>
+					<div class="flex">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/public/scripts/toggler.js"></script>
+		<script src="/public/scripts/musicBoard.js"></script>
+	</body>
+</html>

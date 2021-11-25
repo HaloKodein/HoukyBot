@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+	<head>
+		<%- include('./partials/Head.ejs', { botName: botName, pageTitle: pageTitle, logged: logged }) %>
+	</head>
+	<body class="overflow-auto bg-gray-800">
+		<%- include('./partials/Header.ejs', { botName: botName, pageTitle: pageTitle, logged: logged }) %>
+		<div class="h-screen flex flex-col bg-gray-800">
+			<div class="mt-28 lg:mt-40 flex items-center flex-col p-3">
+				<h1
+					class="text-indigo-50
+					text-4xl font-bold"
+				>Houky Bot</h1>
+				<p class="text-indigo-100 text-center text-md p-2 mb-2">
+					A experiência definitiva, com varios comandos de música,<br>
+					fácil de configurar utilizando o nosso dashboard.
+				</p>
+				<a
+					href="/invite?type=bot"
+					class="add-button-anf flex h-12 items-center
+					bg-gradient-to-r from-purple-500 to-indigo-600
+				  text-indigo-100 shadow-md p-3 font-semibold rounded
+					transition-all"
+				>
+				<i class="material-icons mr-1">add_box</i>	Adicione o Bot
+				</a>
+			</div>
+
+			<div class="grid grid-cols-2 bg-gray-900 mt-40 p-5">
+				<div class="flex flex-col h-auto justify-self-start text-start">
+					<h1 class="text-indigo-100 font-bold mt-auto">Pratico de utilizar.</h1>
+					<p class="text-gray-500 mb-auto">
+						Você procurava por um bot fácil de se utilizar?
+						Os comandos do houky são diretos, sem enrolação!
+					</p>
+				</div>
+				<div class="ml-auto justify-self-end rotate-12">
+					<img
+						src="https://cdn.discordapp.com/attachments/837553349246713859/910775072573251654/png_20211118_031441_0000.png"
+						alt=" "
+						class="max-w-80 max-h-80 rotate-img-r rounded-lg"
+					>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-2 bg-gray-900 p-5">
+				<div class="mr-auto justify-self-start">
+					<img
+						src="https://cdn.discordapp.com/attachments/837553349246713859/910775072573251654/png_20211118_031441_0000.png"
+						alt=" "
+						class="max-w-80 max-h-80 rotate-img-l rounded-lg"
+					>
+				</div>
+				<div class="flex flex-col h-auto justify-self-end text-start">
+					<h1 class="text-indigo-100 font-bold mt-auto">Dashboard completo.</h1>
+					<p class="text-gray-500 mb-auto">
+						Você está cansado de ficar usando comandos toda hora?
+						Pronto! O Houky possue um dashboard completo para você utilizar
+						a hora que quiser, com todas as opções disponíveis e a possibilidade
+						de criar playlists personalizadas!
+					</p>
+				</div>
+			</div>
+
+			<div class="flex flex-col mt-20 p-5 items-center">
+				<div class="flex w-full h-auto items-center">
+					<div class="mr-3 ml-auto">
+						<h1 class="text-2xl text-indigo-100">
+							<span class="font-bold">Pronto para</span>
+							<br>adicionar o bot?
+						</h1>
+					</div>
+					<div class="mr-auto ml-3">
+						<a
+						href="/invite?type=bot"
+						class="add-button-ans flex h-12 items-center
+						bg-gradient-to-r from-purple-500 to-indigo-600
+					  text-indigo-100 shadow-md p-3 font-semibold rounded
+						transition-all"
+						>
+						<i class="material-icons mr-1">add_box</i>	Adicione o Bot
+						</a>
+					</div>
+				</div>
+				<div class="flex flex-col w-full h-auto items-center mt-6">
+					<div class="self-center flex">
+						<div class="flex flex-col p-3">
+							<h1 class="status-title text-2xl text-indigo-100 font-bold">
+								10000
+							</h1>
+							<p class="text-purple-500 font-bold text-sm text-center">
+								Servers
+							</p>
+						</div>
+						<div class="flex flex-col p-3">
+							<h1 class="status-title text-2xl text-indigo-100 font-bold">
+								10000
+							</h1>
+							<p class="text-purple-500 font-bold text-sm text-center">
+								Servers
+							</p>
+						</div>
+						<div class="flex flex-col p-3">
+							<h1 class="status-title text-2xl text-indigo-100 font-bold">
+								10000
+							</h1>
+							<p class="text-purple-500 font-bold text-sm text-center">
+								Servers
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/public/scripts/toggler.js"></script>
+	</body>
+</html>

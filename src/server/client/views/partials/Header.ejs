@@ -1,0 +1,66 @@
+<nav class="flex items-center bg-gray-800 p-3 flex-wrap shadow-md">
+    <a href="/" class="p-2 mr-4 inline-flex items-center">
+        <span class="text-xl text-white font-bold uppercase tracking-wide">
+            <%= botName %>
+        </span>
+    </a>
+    <button
+        class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto
+        nav-toggler"
+        data-target="#navigation"
+    >
+        <i class="material-icons">menu</i>
+    </button>
+    <div
+        class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto"
+        id="navigation"
+    >
+        <div class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
+            <a
+                href="/commands"
+                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white
+                hover:bg-gray-900 transition-all"
+            >
+                <span>Comandos</span>
+            </a>
+            <a
+                href="#"
+                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white
+                hover:bg-gray-900 transition-all"
+            >
+                <span>Servidores</span>
+            </a>
+            <a
+                href="#"
+                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white
+                hover:bg-gray-900 transition-all"
+            >
+                <span>Usuarios</span>
+            </a>
+            <% if(logged){ %>
+                <a
+                    href="/dashboard"
+                    class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white
+                    hover:bg-gray-900 transition-all"
+                >
+                    <span>Dashboard</span>
+                </a>
+                <a
+                    href="/oauth/logout"
+                    class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white
+                    hover:bg-gray-900 transition-all"
+                >
+                    <span>Logout</span>
+                </a>
+            <% } else { %>
+                <a
+                    href="/oauth/login"
+                    class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white
+                    hover:bg-gray-900 transition-all"
+                >
+                    <span>Login</span>
+                </a>
+            <% } %>
+        </div>
+    </div>
+</nav>
