@@ -31,7 +31,7 @@ export async function serverBootstrap(client: Client) {
 
 	app.use(
 		session({
-			secret: 'kGWheOgakg2)Gk29a@9gt2k0-gf@ggsa',
+			secret: process.env.SECRET_CLIENT_KEY,
 			name: 'discord',
 			saveUninitialized: false,
 			resave: false,
